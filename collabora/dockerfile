@@ -1,0 +1,6 @@
+FROM collabora/code
+MAINTAINER Rémi AUGUSTE <remi.auguste@gmail.com>
+
+ENV DONT_GEN_SSL_CERT true
+
+RUN sed -i 's/# Replace trusted host and set admin username and password/# Replace trusted host and set admin username and password\nsed -i "s\/<enable type=\\\"bool\\\" default=\\\"true\\\">true<\\\/enable>\/<enable type=\\\"bool\\\" default=\\\"true\\\">false<\\\/enable>\/g" \/etc\/loolwsd\/loolwsd.xml/g' start-libreoffice.sh

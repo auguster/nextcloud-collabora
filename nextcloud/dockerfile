@@ -1,0 +1,10 @@
+FROM nextcloud
+MAINTAINER Rémi AUGUSTE <remi.auguste@gmail.com>
+
+RUN a2enmod proxy
+RUN a2enmod proxy_wstunnel
+RUN a2enmod proxy_http
+
+COPY ./collabora.conf /etc/apache2/sites-available/collabora.conf
+
+RUN a2ensite collabora
